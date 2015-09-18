@@ -11,6 +11,7 @@
 @interface BubbularMenuView : UIView
 
 @property UIDynamicAnimator *dynamicAnimator;
+@property CGFloat spacing;
 
 -(instancetype)initWithMenuItemCount:(int)count andButtonCircumference:(CGFloat)circ;
 -(void)fanButtonsOut;

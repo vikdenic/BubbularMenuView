@@ -32,13 +32,12 @@
 
 -(void)fanButtonsOut
 {
-    CGFloat floatForSpacing = 10.0;
     UIButton *mainButton = self.subviews.firstObject;
 
     int i = 0;
     for (UIButton *menuButton in self.subviews)
     {
-        [self snapButton:menuButton toPoint:CGPointMake(mainButton.center.x + (floatForSpacing * i), mainButton.center.y)];
+        [self snapButton:menuButton toPoint:CGPointMake(mainButton.center.x + (self.spacing * i), mainButton.center.y)];
         i++;
     }
 }

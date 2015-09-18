@@ -22,6 +22,7 @@
     BubbularMenuView *menuView = [[BubbularMenuView alloc] initWithMenuItemCount:3 andButtonCircumference:50];
     [self.view addSubview:menuView];
 
+    menuView.spacing = 75;
     [menuView fanButtonsOut];
 }
 
