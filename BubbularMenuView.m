@@ -21,16 +21,28 @@
     {
         NSString *buttonTitle = [NSString stringWithFormat:@"%i", i];
         UIButton *menuItemButton = [self createButtonWithTitle:buttonTitle withCircumference:circ];
+        menuItemButton.tag = i;
+
+        [menuItemButton addTarget:self action:@selector(onMenuButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+
         [self addSubview:menuItemButton];
         [self sendSubviewToBack:menuItemButton];
+
+        if (i == 0)
+        {
+            self.mainButton = menuItemButton;
+        }
     }
 
     self.dynamicAnimator = [[UIDynamicAnimator alloc]initWithReferenceView:self];
 
+    
+    [self.mainButton addTarget:self action:@selector(contractMenuButtons:) forControlEvents:UIControlEventTouchUpInside];
+
     return self;
 }
 
--(void)fanButtonsOut
+-(void)expandMenuButtons
 {
     UIButton *mainButton = self.subviews.lastObject;
 
@@ -42,10 +54,32 @@
     }
 }
 
+-(void)contractMenuButtons:(id)sender
+{
+    [self.dynamicAnimator removeAllBehaviors];
+
+    if (!self.isExpanded) {
+        [self expandMenuButtons];
+    }
+    else
+    {
+        for (UIButton *menuButton in [[self.subviews reverseObjectEnumerator] allObjects])
+        {
+            [self snapButton:menuButton toPoint:self.mainButton.center];
+        }
+    }
+    self.isExpanded = !self.isExpanded;
+}
+
 -(void)snapButton:(UIButton *)button toPoint:(CGPoint)point
 {
     UISnapBehavior *snapBehaviour = [[UISnapBehavior alloc]initWithItem:button snapToPoint:point];
     [self.dynamicAnimator addBehavior:snapBehaviour];
+}
+
+-(void)onMenuButtonTapped:(id)sender
+{
+    [self.delegate bubbularMenuView:self didTapMenuButton:sender];
 }
 
 -(UIButton *)createButtonWithTitle:(NSString *)title withCircumference:(CGFloat)circ

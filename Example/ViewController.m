@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "BubbularMenuView.h"
 
-@interface ViewController ()
+@interface ViewController () <BubbularMenuViewDelegate>
 
 @end
 
@@ -20,10 +20,16 @@
     [super viewDidLoad];
 
     BubbularMenuView *menuView = [[BubbularMenuView alloc] initWithMenuItemCount:3 andButtonCircumference:50];
+    menuView.delegate = self;
     [self.view addSubview:menuView];
 
     menuView.spacing = 75;
-    [menuView fanButtonsOut];
+    [menuView expandMenuButtons];
+}
+
+-(void)bubbularMenuView:(BubbularMenuView *)menuView didTapMenuButton:(UIButton *)menuButton
+{
+    
 }
 
 @end

@@ -7,13 +7,27 @@
 //
 
 #import <UIKit/UIKit.h>
+@class BubbularMenuView;
+
+@protocol BubbularMenuViewDelegate <NSObject>
+
+@required
+
+-(void)bubbularMenuView:(BubbularMenuView *)menuView didTapMenuButton:(UIButton *)menuButton;
+
+@end
 
 @interface BubbularMenuView : UIView
 
+@property id<BubbularMenuViewDelegate> delegate;
+
 @property UIDynamicAnimator *dynamicAnimator;
+@property UIButton *mainButton;
+
 @property CGFloat spacing;
+@property BOOL isExpanded;
 
 -(instancetype)initWithMenuItemCount:(int)count andButtonCircumference:(CGFloat)circ;
--(void)fanButtonsOut;
+-(void)expandMenuButtons;
 
 @end
