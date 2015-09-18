@@ -25,7 +25,28 @@
         [self sendSubviewToBack:menuItemButton];
     }
 
+    self.dynamicAnimator = [[UIDynamicAnimator alloc]initWithReferenceView:self];
+
     return self;
+}
+
+-(void)fanButtonsOut
+{
+    CGFloat floatForSpacing = 10.0;
+    UIButton *mainButton = self.subviews.firstObject;
+
+    int i = 0;
+    for (UIButton *menuButton in self.subviews)
+    {
+        [self snapButton:menuButton toPoint:CGPointMake(mainButton.center.x + (floatForSpacing * i), mainButton.center.y)];
+        i++;
+    }
+}
+
+-(void)snapButton:(UIButton *)button toPoint:(CGPoint)point
+{
+    UISnapBehavior *snapBehaviour = [[UISnapBehavior alloc]initWithItem:button snapToPoint:point];
+    [self.dynamicAnimator addBehavior:snapBehaviour];
 }
 
 -(UIButton *)createButtonWithTitle:(NSString *)title withCircumference:(CGFloat)circ

@@ -10,6 +10,9 @@
 
 @interface BubbularMenuView : UIView
 
-- (instancetype)initWithMenuItemCount:(int)count andButtonCircumference:(CGFloat)circ;
+@property UIDynamicAnimator *dynamicAnimator;
+
+-(instancetype)initWithMenuItemCount:(int)count andButtonCircumference:(CGFloat)circ;
+-(void)fanButtonsOut;
 
 @end

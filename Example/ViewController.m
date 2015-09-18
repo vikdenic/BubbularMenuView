@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "BubbularMenuView.h"
 
 @interface ViewController ()
 
@@ -14,14 +15,14 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-}
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    BubbularMenuView *menuView = [[BubbularMenuView alloc] initWithMenuItemCount:3 andButtonCircumference:50];
+    [self.view addSubview:menuView];
+
+    [menuView fanButtonsOut];
 }
 
 @end
