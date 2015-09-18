@@ -21,10 +21,9 @@
 
     BubbularMenuView *menuView = [[BubbularMenuView alloc] initWithMenuItemCount:3 andButtonCircumference:50];
     menuView.delegate = self;
-    [self.view addSubview:menuView];
 
     menuView.spacing = 75;
-    [menuView expandMenuButtons];
+    [self.view addSubview:menuView];
 }
 
 -(void)bubbularMenuView:(BubbularMenuView *)menuView didTapMenuButton:(UIButton *)menuButton

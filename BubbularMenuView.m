@@ -31,13 +31,11 @@
         if (i == 0)
         {
             self.mainButton = menuItemButton;
+            [self.mainButton addTarget:self action:@selector(contractMenuButtons:) forControlEvents:UIControlEventTouchUpInside];
         }
     }
 
     self.dynamicAnimator = [[UIDynamicAnimator alloc]initWithReferenceView:self];
-
-    
-    [self.mainButton addTarget:self action:@selector(contractMenuButtons:) forControlEvents:UIControlEventTouchUpInside];
 
     return self;
 }
@@ -58,7 +56,8 @@
 {
     [self.dynamicAnimator removeAllBehaviors];
 
-    if (!self.isExpanded) {
+    if (!self.isExpanded)
+    {
         [self expandMenuButtons];
     }
     else
@@ -77,7 +76,7 @@
     [self.dynamicAnimator addBehavior:snapBehaviour];
 }
 
--(void)onMenuButtonTapped:(id)sender
+-(void)onMenuButtonTapped:(UIButton *)sender
 {
     [self.delegate bubbularMenuView:self didTapMenuButton:sender];
 }
