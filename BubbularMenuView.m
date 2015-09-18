@@ -16,6 +16,8 @@
     CGRect frameforEncasingView = CGRectMake(0, 0, totalWidth, circ);
 
     self = [[BubbularMenuView alloc] initWithFrame:frameforEncasingView];
+    self.buttonCount = count;
+    self.buttonCircumference = circ;
 
     for (int i = 0; i < count + 1; i++)
     {
@@ -35,8 +37,9 @@
         }
     }
 
-    self.dynamicAnimator = [[UIDynamicAnimator alloc]initWithReferenceView:self];
+    [self resizeToFitSubviews];
 
+    self.dynamicAnimator = [[UIDynamicAnimator alloc]initWithReferenceView:self];
     return self;
 }
 
@@ -96,5 +99,18 @@
     return button;
 }
 
+-(void)resizeToFitSubviews
+{
+    CGFloat totalWidth = ( (self.buttonCircumference * (self.buttonCount + 1)) + ((self.spacing - self.buttonCircumference) * self.buttonCount) );
+
+    NSLog(@"%f", totalWidth);
+    self.frame = CGRectMake(0, 0, totalWidth, self.frame.size.height);
+}
+
+-(void)setSpacing:(CGFloat)spacing
+{
+    _spacing = spacing;
+    [self resizeToFitSubviews];
+}
 
 @end

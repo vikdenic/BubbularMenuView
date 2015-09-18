@@ -19,16 +19,16 @@
 {
     [super viewDidLoad];
 
-    BubbularMenuView *menuView = [[BubbularMenuView alloc] initWithMenuItemCount:3 andButtonCircumference:50];
+    BubbularMenuView *menuView = [[BubbularMenuView alloc] initWithMenuItemCount:3 andButtonCircumference:50.0];
     menuView.delegate = self;
 
-    menuView.spacing = 75;
+    menuView.spacing = 75.0;
     [self.view addSubview:menuView];
 }
 
 -(void)bubbularMenuView:(BubbularMenuView *)menuView didTapMenuButton:(UIButton *)menuButton
 {
-    
+    NSLog(@"%ld", (long)menuButton.tag);
 }
 
 @end

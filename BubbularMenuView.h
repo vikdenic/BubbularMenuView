@@ -24,7 +24,9 @@
 @property UIDynamicAnimator *dynamicAnimator;
 @property UIButton *mainButton;
 
-@property CGFloat spacing;
+@property int buttonCount;
+@property CGFloat buttonCircumference;
+@property (nonatomic) CGFloat spacing;
 @property BOOL isExpanded;
 
 -(instancetype)initWithMenuItemCount:(int)count andButtonCircumference:(CGFloat)circ;
