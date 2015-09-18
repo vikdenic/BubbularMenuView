@@ -32,10 +32,10 @@
 
 -(void)fanButtonsOut
 {
-    UIButton *mainButton = self.subviews.firstObject;
+    UIButton *mainButton = self.subviews.lastObject;
 
     int i = 0;
-    for (UIButton *menuButton in self.subviews)
+    for (UIButton *menuButton in [[self.subviews reverseObjectEnumerator] allObjects])
     {
         [self snapButton:menuButton toPoint:CGPointMake(mainButton.center.x + (self.spacing * i), mainButton.center.y)];
         i++;
