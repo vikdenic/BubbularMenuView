@@ -14,6 +14,7 @@
 		93DB20901BABD378006E9579 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93DB208F1BABD378006E9579 /* Images.xcassets */; };
 		93DB20931BABD378006E9579 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93DB20911BABD378006E9579 /* LaunchScreen.xib */; };
 		93DB209F1BABD378006E9579 /* ExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DB209E1BABD378006E9579 /* ExampleTests.m */; };
+		93DB20AA1BABD420006E9579 /* BubbularMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DB20A91BABD420006E9579 /* BubbularMenuView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		93DB20981BABD378006E9579 /* ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		93DB209D1BABD378006E9579 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93DB209E1BABD378006E9579 /* ExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExampleTests.m; sourceTree = "<group>"; };
+		93DB20A81BABD420006E9579 /* BubbularMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BubbularMenuView.h; path = ../BubbularMenuView.h; sourceTree = "<group>"; };
+		93DB20A91BABD420006E9579 /* BubbularMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BubbularMenuView.m; path = ../BubbularMenuView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +88,8 @@
 				93DB20871BABD378006E9579 /* AppDelegate.m */,
 				93DB20891BABD378006E9579 /* ViewController.h */,
 				93DB208A1BABD378006E9579 /* ViewController.m */,
+				93DB20A81BABD420006E9579 /* BubbularMenuView.h */,
+				93DB20A91BABD420006E9579 /* BubbularMenuView.m */,
 				93DB208C1BABD378006E9579 /* Main.storyboard */,
 				93DB208F1BABD378006E9579 /* Images.xcassets */,
 				93DB20911BABD378006E9579 /* LaunchScreen.xib */,
@@ -219,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93DB20AA1BABD420006E9579 /* BubbularMenuView.m in Sources */,
 				93DB208B1BABD378006E9579 /* ViewController.m in Sources */,
 				93DB20881BABD378006E9579 /* AppDelegate.m in Sources */,
 				93DB20851BABD378006E9579 /* main.m in Sources */,
