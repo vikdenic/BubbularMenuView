@@ -21,8 +21,8 @@
 
     BubbularMenuView *menuView = [[BubbularMenuView alloc] initWithMenuItemCount:3 andButtonCircumference:50.0];
     menuView.delegate = self;
-
     menuView.spacing = 75.0;
+    menuView.direction = BubbularDirectionHorizontal;
     [self.view addSubview:menuView];
 }
 

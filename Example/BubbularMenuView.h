@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 @class BubbularMenuView;
 
+typedef NS_ENUM(NSInteger, BubbularDirection) {
+    BubbularDirectionHorizontal,
+    BubbularDirectionVertical
+};
+
 @protocol BubbularMenuViewDelegate <NSObject>
 
 @required
@@ -26,10 +31,13 @@
 
 @property int buttonCount;
 @property CGFloat buttonCircumference;
-@property (nonatomic) CGFloat spacing;
+@property (nonatomic) CGFloat spacing; //from one button's center to the next
 @property BOOL isExpanded;
+
+@property (nonatomic) BubbularDirection direction;
 
 -(instancetype)initWithMenuItemCount:(int)count andButtonCircumference:(CGFloat)circ;
 -(void)expandMenuButtons;
 
 @end
+

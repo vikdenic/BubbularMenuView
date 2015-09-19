@@ -16,6 +16,8 @@
     CGRect frameforEncasingView = CGRectMake(0, 0, totalWidth, circ);
 
     self = [[BubbularMenuView alloc] initWithFrame:frameforEncasingView];
+    self.direction = BubbularDirectionHorizontal; //default value
+    self.spacing = circ; //default value
     self.buttonCount = count;
     self.buttonCircumference = circ;
 
@@ -50,7 +52,15 @@
     int i = 0;
     for (UIButton *menuButton in [[self.subviews reverseObjectEnumerator] allObjects])
     {
-        [self snapButton:menuButton toPoint:CGPointMake(mainButton.center.x + (self.spacing * i), mainButton.center.y)];
+
+        if (self.direction == BubbularDirectionVertical)
+        {
+            [self snapButton:menuButton toPoint:CGPointMake(mainButton.center.x, mainButton.center.y  + (self.spacing * i))];
+        }
+        else
+        {
+            [self snapButton:menuButton toPoint:CGPointMake(mainButton.center.x + (self.spacing * i), mainButton.center.y)];
+        }
         i++;
     }
 }
@@ -101,15 +111,28 @@
 
 -(void)resizeToFitSubviews
 {
-    CGFloat totalWidth = ( (self.buttonCircumference * (self.buttonCount + 1)) + ((self.spacing - self.buttonCircumference) * self.buttonCount) );
+    CGFloat totalLength = ( (self.buttonCircumference * (self.buttonCount + 1)) + ((self.spacing - self.buttonCircumference) * self.buttonCount) );
 
-    NSLog(@"%f", totalWidth);
-    self.frame = CGRectMake(0, 0, totalWidth, self.frame.size.height);
+    if (self.direction == BubbularDirectionVertical)
+    {
+        self.frame = CGRectMake(0, 0, self.frame.size.width, totalLength);
+
+    }
+    else
+    {
+        self.frame = CGRectMake(0, 0, totalLength, self.frame.size.height);
+    }
 }
 
 -(void)setSpacing:(CGFloat)spacing
 {
     _spacing = spacing;
+    [self resizeToFitSubviews];
+}
+
+-(void)setDirection:(BubbularDirection)direction
+{
+    _direction = direction;
     [self resizeToFitSubviews];
 }
 
