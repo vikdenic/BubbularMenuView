@@ -115,12 +115,12 @@
 
     if (self.direction == BubbularDirectionVertical)
     {
-        self.frame = CGRectMake(0, 0, self.frame.size.width, totalLength);
+        self.frame = CGRectMake(0, 0, self.buttonCircumference, totalLength);
 
     }
     else
     {
-        self.frame = CGRectMake(0, 0, totalLength, self.frame.size.height);
+        self.frame = CGRectMake(0, 0, totalLength, self.buttonCircumference);
     }
 }
 
