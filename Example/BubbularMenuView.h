@@ -29,6 +29,8 @@ typedef NS_ENUM(NSInteger, BubbularDirection) {
 @property UIDynamicAnimator *dynamicAnimator;
 @property UIButton *mainButton;
 
+@property (nonatomic) NSArray *images;
+
 @property int buttonCount;
 @property CGFloat buttonCircumference;
 @property (nonatomic) CGFloat spacing; //from one button's center to the next

@@ -22,8 +22,21 @@
     BubbularMenuView *menuView = [[BubbularMenuView alloc] initWithMenuItemCount:3 andButtonCircumference:50.0];
     menuView.delegate = self;
     menuView.spacing = 75.0;
-    menuView.direction = BubbularDirectionVertical;
+    menuView.direction = BubbularDirectionHorizontal;
+    menuView.images = [self imagesArray];
+
     [self.view addSubview:menuView];
+}
+
+-(NSArray *)imagesArray
+{
+    UIImage *mainImage = [UIImage imageNamed:@"navicon"];
+
+    UIImage *menuImage1 = [UIImage imageNamed:@"envelope"];
+    UIImage *menuImage2 = [UIImage imageNamed:@"bell"];
+    UIImage *menuImage3 = [UIImage imageNamed:@"gear"];
+
+    return @[mainImage, menuImage1, menuImage2, menuImage3];
 }
 
 -(void)bubbularMenuView:(BubbularMenuView *)menuView didTapMenuButton:(UIButton *)menuButton

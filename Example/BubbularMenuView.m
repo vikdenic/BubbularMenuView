@@ -23,8 +23,11 @@
 
     for (int i = 0; i < count + 1; i++)
     {
-        NSString *buttonTitle = [NSString stringWithFormat:@"%i", i];
-        UIButton *menuItemButton = [self createButtonWithTitle:buttonTitle withCircumference:circ];
+//        NSString *buttonTitle = [NSString stringWithFormat:@"%i", i];
+        UIButton *menuItemButton = [self createButtonWithTitle:nil withCircumference:circ];
+
+        [self formatImageViewForButton:menuItemButton];
+
         menuItemButton.tag = i;
 
         [menuItemButton addTarget:self action:@selector(onMenuButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
@@ -124,6 +127,17 @@
     }
 }
 
+-(void)formatImageViewForButton:(UIButton *)button
+{
+    button.contentMode = UIViewContentModeScaleAspectFill;
+    button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentFill;
+    button.contentVerticalAlignment = UIControlContentVerticalAlignmentFill;
+
+    float edgeInset = self.buttonCircumference / 6;
+    button.imageEdgeInsets = UIEdgeInsetsMake(edgeInset, edgeInset, edgeInset, edgeInset);
+    button.imageView.contentMode = UIViewContentModeScaleAspectFit;
+}
+
 -(void)setSpacing:(CGFloat)spacing
 {
     _spacing = spacing;
@@ -134,6 +148,18 @@
 {
     _direction = direction;
     [self resizeToFitSubviews];
+}
+
+-(void)setImages:(NSArray *)images
+{
+    _images = images;
+
+    int i = 0;
+    for (UIButton *menuButton in [[self.subviews reverseObjectEnumerator] allObjects])
+    {
+        [menuButton setImage:self.images[i] forState:UIControlStateNormal];
+        i++;
+    }
 }
 
 @end
