@@ -33,6 +33,7 @@ typedef NS_ENUM(NSInteger, BubbularDirection) {
 @property (nonatomic) UIImage *mainMenuButtonImage;
 
 @property (nonatomic) UIColor *buttonBorderColor;
+@property (nonatomic) UIColor *buttonBackgroundColor;
 @property (nonatomic) float buttonBorderWidth;
 
 @property int buttonCount;

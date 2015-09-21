@@ -26,7 +26,8 @@
     menuView.direction = BubbularDirectionHorizontal;
     menuView.images = [self imagesArray];
     menuView.buttonBorderColor = [self customRedColor];
-    menuView.buttonBorderWidth = 0;
+    menuView.buttonBackgroundColor = [self customLightGrayColor];
+    menuView.buttonBorderWidth = 0.5;
 
     [self.view addSubview:menuView];
 }
@@ -52,5 +53,11 @@
 {
     return [UIColor colorWithRed:255.0/255.0 green:102.0/255.0 blue:102.0/255.0 alpha:1];
 }
+
+-(UIColor *)customLightGrayColor
+{
+    return [UIColor colorWithRed:240.0/255.0 green:240.0/255.0 blue:240.0/255.0 alpha:1];
+}
+
 
 @end

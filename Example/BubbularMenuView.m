@@ -138,6 +138,16 @@
     button.imageView.contentMode = UIViewContentModeScaleAspectFit;
 }
 
+-(void)setButtonBackgroundColor:(UIColor *)buttonBackgroundColor
+{
+    _buttonBackgroundColor = buttonBackgroundColor;
+
+    for (UIButton *menuButton in [[self.subviews reverseObjectEnumerator] allObjects])
+    {
+        menuButton.backgroundColor = self.buttonBackgroundColor;
+    }
+}
+
 -(void)setSpacing:(CGFloat)spacing
 {
     _spacing = spacing;
