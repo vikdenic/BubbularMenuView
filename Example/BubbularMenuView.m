@@ -162,4 +162,14 @@
     }
 }
 
+-(void)setButtonBorderColor:(UIColor *)buttonBorderColor
+{
+    _buttonBorderColor = buttonBorderColor;
+
+    for (UIButton *menuButton in [[self.subviews reverseObjectEnumerator] allObjects])
+    {
+        menuButton.layer.borderColor = self.buttonBorderColor.CGColor;
+    }
+}
+
 @end

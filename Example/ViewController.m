@@ -19,11 +19,12 @@
 {
     [super viewDidLoad];
 
-    BubbularMenuView *menuView = [[BubbularMenuView alloc] initWithMenuItemCount:3 andButtonCircumference:50.0];
+    BubbularMenuView *menuView = [[BubbularMenuView alloc] initWithMenuItemCount:3 andButtonCircumference:self.view.frame.size.width / 10];
     menuView.delegate = self;
-    menuView.spacing = 75.0;
+    menuView.spacing = self.view.frame.size.width / 3.5;
     menuView.direction = BubbularDirectionHorizontal;
     menuView.images = [self imagesArray];
+    menuView.buttonBorderColor = [UIColor clearColor];
 
     [self.view addSubview:menuView];
 }
