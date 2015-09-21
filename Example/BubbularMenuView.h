@@ -30,7 +30,10 @@ typedef NS_ENUM(NSInteger, BubbularDirection) {
 @property UIButton *mainButton;
 
 @property (nonatomic) NSArray *images;
+@property (nonatomic) UIImage *mainMenuButtonImage;
+
 @property (nonatomic) UIColor *buttonBorderColor;
+@property (nonatomic) float buttonBorderWidth;
 
 @property int buttonCount;
 @property CGFloat buttonCircumference;

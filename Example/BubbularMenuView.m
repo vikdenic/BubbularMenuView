@@ -162,6 +162,14 @@
     }
 }
 
+-(void)setMainMenuButtonImage:(UIImage *)mainMenuButtonImage
+{
+    _mainMenuButtonImage = mainMenuButtonImage;
+
+    UIButton *mainButton = self.subviews.lastObject;
+    mainButton.imageView.image =self.mainMenuButtonImage;
+}
+
 -(void)setButtonBorderColor:(UIColor *)buttonBorderColor
 {
     _buttonBorderColor = buttonBorderColor;
@@ -169,6 +177,16 @@
     for (UIButton *menuButton in [[self.subviews reverseObjectEnumerator] allObjects])
     {
         menuButton.layer.borderColor = self.buttonBorderColor.CGColor;
+    }
+}
+
+-(void)setButtonBorderWidth:(float)width
+{
+    _buttonBorderWidth = width;
+
+    for (UIButton *menuButton in [[self.subviews reverseObjectEnumerator] allObjects])
+    {
+        menuButton.layer.borderWidth = self.buttonBorderWidth;
     }
 }
 
